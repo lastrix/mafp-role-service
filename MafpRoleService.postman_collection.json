@@ -1,0 +1,570 @@
+{
+  "info": {
+    "_postman_id": "9a7f8746-0f92-46dd-b53a-2fd471ee809c",
+    "name": "MafpRoleService",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "/api/v1/role",
+      "item": [
+        {
+          "name": "CREATE role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Role1\",\n    \"description\": \"Role1 description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/role",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "role"
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Role1\",\n    \"description\": \"Role1 description (modified)\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/role",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "role"
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "GET role by name",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/role/:roleName",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "role",
+                ":roleName"
+              ],
+              "variable": [
+                {
+                  "key": "roleName",
+                  "value": "Role1"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "PAGE role (GET)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/role/page?page=0&pageSize=20",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "role",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "PAGE role (POST)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"page\": 0,\n    \"pageSize\": 20\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/role/page",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "role",
+                "page"
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "/api/v1/user",
+      "item": [
+        {
+          "name": "GET roles (MY)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/user/roles",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "roles"
+              ]
+            },
+            "description": "Get your roles"
+          },
+          "response": []
+        },
+        {
+          "name": "GET roles (user)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/user/:userId/roles",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":userId",
+                "roles"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "SET roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/user/:userId/roles?roles=Role1",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":userId",
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "roles",
+                  "value": "Role1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "ADD roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/user/:userId/roles?roles=Role1",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":userId",
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "roles",
+                  "value": "Role1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/api/v1/user/:userId/roles?roles=Role1",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":userId",
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "roles",
+                  "value": "Role1"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "/srv/v1/user",
+      "item": [
+        {
+          "name": "GET roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_SRV_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/srv/v1/user/:userId/roles",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "srv",
+                "v1",
+                "user",
+                ":userId",
+                "roles"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "CHECK roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_SRV_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/srv/v1/user/:userId/check?roles=Role1&roles=Role2",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "srv",
+                "v1",
+                "user",
+                ":userId",
+                "check"
+              ],
+              "query": [
+                {
+                  "key": "roles",
+                  "value": "Role1"
+                },
+                {
+                  "key": "roles",
+                  "value": "Role2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        },
+        {
+          "name": "CHECK roles (ANY)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{MAFP_SRV_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{MAFP_ROLE_SERVICE}}/srv/v1/user/:userId/check/any?roles=Role1&roles=Role2",
+              "host": [
+                "{{MAFP_ROLE_SERVICE}}"
+              ],
+              "path": [
+                "srv",
+                "v1",
+                "user",
+                ":userId",
+                "check",
+                "any"
+              ],
+              "query": [
+                {
+                  "key": "roles",
+                  "value": "Role1"
+                },
+                {
+                  "key": "roles",
+                  "value": "Role2"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "00000000-0000-0000-0000-000000000002"
+                }
+              ]
+            },
+            "description": "Requires RoleManager role to perform"
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{MAFP_TOKEN}}",
+        "type": "string"
+      }
+    ]
+  },
+  "protocolProfileBehavior": {}
+}

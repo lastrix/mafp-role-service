@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.7.xsd"
+        context="prod">
+
+    <include file="20201107-00-0-initial.sql" relativeToChangelogFile="true"/>
+    <include file="20201107-00-1-basic_roles.sql" relativeToChangelogFile="true"/>
+    <include file="20201107-00-2-users.sql" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

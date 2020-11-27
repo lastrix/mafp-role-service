@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: 'prod'
+  application:
+    name: 'role-service'
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    initialization-mode: 'always'
+  jpa:
+    properties:
+      hibernate:
+        default_schema: 'role_service'
+        jdbc:
+          time_zone: 'UTC'
+    hibernate:
+      ddl-auto: 'validate'
+  liquibase:
+    enabled: 'true'
+    change-log: 'classpath:liquibase/changelog/changelog.xml'
+    liquibaseSchema: 'role_service'
+    defaultSchema: 'role_service'
+
+##################
+server:
+  port: ${SERVER_PORT:8080}
+
+mafp:
+  srv-id: ${MAFP_SRV_ID:7fffffff-ffff-ffff-0000-000000000001}
+  debug: ${MAFP_DEBUG:false}
+  role:
+    cache:
+      enable: ${ROLE_SERVICE_CACHE_ENABLE:true}
+      lifetime: ${ROLE_SERVICE_LIFETIME:300000}
+      max-size: ${ROLE_SERVICE_MAXSIZE:100000}
+    jwt:
+      use: ${ROLE_SERVICE_JWT_USE:true}
